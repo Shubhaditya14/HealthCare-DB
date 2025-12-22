@@ -212,32 +212,6 @@ REACT_APP_API_URL=http://localhost:5000/api
 - `GET /api/appointments/:id` - Get appointment details
 - `PUT /api/appointments/:id` - Update appointment status
 
-## 🧪 Testing
-
-### Manual Testing Checklist
-
-**Patient Flow:**
-- [ ] Register with valid data
-- [ ] Login with credentials
-- [ ] View dashboard
-- [ ] Book appointment
-- [ ] View appointments
-- [ ] Logout
-
-**Doctor Flow:**
-- [ ] Register with license number
-- [ ] Login with credentials
-- [ ] View dashboard
-- [ ] See patient appointments
-- [ ] Update appointment status
-- [ ] Logout
-
-**Security:**
-- [ ] Passwords are hashed in database
-- [ ] JWT expires after 1 hour
-- [ ] Refresh token works
-- [ ] Protected routes require authentication
-- [ ] Rate limiting prevents brute force
 
 ## 📱 User Interface
 
@@ -252,40 +226,13 @@ The application features a clean, professional medical theme with:
 1. **Never store plaintext passwords** - All passwords are hashed with PBKDF2-SHA256
 2. **Server-side validation** - Client validation is UX only, server is authoritative
 3. **JWT in localStorage** - With proper expiry (1 hour access, 30 day refresh)
-4. **Rate limiting** - 5 registrations/hour, 10 logins/5min per IP
-5. **Input sanitization** - All user input is escaped and validated
-6. **Parameterized queries** - SQLAlchemy ORM prevents SQL injection
-7. **HTTPS only** - In production (enforced via configuration)
+4. **Input sanitization** - All user input is escaped and validated
 
-## 🚀 Deployment
 
-### Production Checklist
-- [ ] Set all environment variables
-- [ ] Enable HTTPS (Let's Encrypt or platform default)
-- [ ] Configure CORS for production domain only
-- [ ] Set secure cookie flags (httpOnly, secure, sameSite)
-- [ ] Run database migrations
-- [ ] Set up Redis instance
-- [ ] Configure rate limiting
-- [ ] Test all critical user flows
-- [ ] Set up error monitoring (Sentry recommended)
-- [ ] Create demo accounts for showcase
 
-## 📄 License
-
-This project is a comprehensive demonstration of full-stack web development skills.
 
 ## 👨‍💻 Author
 
 **Shubhaditya**  
 Building sophisticated, secure web systems
 
-## 🙏 Acknowledgments
-
-- Built following security best practices from OWASP
-- Designed with HIPAA compliance considerations
-- Architecture inspired by modern healthcare platforms
-
----
-
-**Note**: This is a portfolio project demonstrating full-stack development skills, security implementation, and production-ready code quality.

@@ -117,4 +117,51 @@ export const appointmentAPI = {
   cancel: (id) => api.delete(`/appointments/${id}`),
 };
 
+// AI API
+export const aiAPI = {
+  // Check AI service status
+  status: () => api.get('/ai/status'),
+
+  // Drug interaction checker
+  checkInteractions: (medications, patientAllergies = [], useLlm = true) =>
+    api.post('/ai/check-interactions', {
+      medications,
+      patient_allergies: patientAllergies,
+      use_llm: useLlm,
+    }),
+
+  // Prescription suggestion
+  suggestPrescription: (data) => api.post('/ai/suggest-prescription', data),
+
+  // Generate patient instructions
+  generateInstructions: (medication, dosage, diagnosis, patientAge = null) =>
+    api.post('/ai/generate-instructions', {
+      medication,
+      dosage,
+      diagnosis,
+      patient_age: patientAge,
+    }),
+
+  // Search patient history (RAG)
+  searchHistory: (patientId, query) =>
+    api.post('/ai/search-history', {
+      patient_id: patientId,
+      query,
+    }),
+
+  // Ask question about patient
+  askAboutPatient: (patientId, question) =>
+    api.post('/ai/ask-about-patient', {
+      patient_id: patientId,
+      question,
+    }),
+
+  // Load synthetic data for demo
+  loadSyntheticData: (force = false) =>
+    api.post('/ai/load-synthetic-data', { force }),
+
+  // Generate embeddings for all records
+  embedAllRecords: () => api.post('/ai/embed-all-records'),
+};
+
 export default api;

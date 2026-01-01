@@ -139,7 +139,7 @@ def get_profile():
     Returns:
         Doctor's profile information
     """
-    doctor_id = get_jwt_identity()
+    doctor_id = int(get_jwt_identity())
     doctor = Doctor.query.get(doctor_id)
 
     if not doctor:
@@ -167,7 +167,7 @@ def update_profile():
     Returns:
         Updated doctor profile
     """
-    doctor_id = get_jwt_identity()
+    doctor_id = int(get_jwt_identity())
     doctor = Doctor.query.get(doctor_id)
 
     if not doctor:
@@ -261,7 +261,7 @@ def get_appointments():
     Returns:
         List of doctor's appointments
     """
-    doctor_id = get_jwt_identity()
+    doctor_id = int(get_jwt_identity())
     doctor = Doctor.query.get(doctor_id)
 
     if not doctor:

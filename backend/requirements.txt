@@ -9,3 +9,5 @@ cryptography
 redis
 werkzeug
 tabulate
+requests
+numpy

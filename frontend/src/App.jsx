@@ -22,6 +22,9 @@ import DoctorRegister from './components/doctor/DoctorRegister';
 import DoctorLogin from './components/doctor/DoctorLogin';
 import DoctorDashboard from './components/doctor/DoctorDashboard';
 
+// AI Components
+import AIDashboard from './pages/AIDashboard';
+
 // Auth Context
 import { useAuth } from './contexts/AuthContext';
 
@@ -93,6 +96,14 @@ function App() {
             element={
               <ProtectedRoute allowedUserTypes={['doctor']}>
                 <DoctorDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/doctor/ai-assistant"
+            element={
+              <ProtectedRoute allowedUserTypes={['doctor']}>
+                <AIDashboard />
               </ProtectedRoute>
             }
           />

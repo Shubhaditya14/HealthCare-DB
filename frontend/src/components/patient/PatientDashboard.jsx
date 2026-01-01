@@ -29,6 +29,13 @@ const PatientDashboard = () => {
     fetchAppointments();
   }, []);
 
+  const canCancelAppointment = (appointmentDate) => {
+    const today = new Date();
+    const aptDate = new Date(appointmentDate);
+    const daysUntilAppointment = Math.floor((aptDate - today) / (1000 * 60 * 60 * 24));
+    return daysUntilAppointment >= 2;
+  };
+
   const handleCancelAppointment = async (appointmentId) => {
     if (!window.confirm('Are you sure you want to cancel this appointment?')) {
       return;
@@ -37,10 +44,13 @@ const PatientDashboard = () => {
     try {
       await appointmentAPI.cancel(appointmentId);
       setSuccessMessage('Appointment cancelled successfully');
+      setError('');
       fetchAppointments();
       setTimeout(() => setSuccessMessage(''), 3000);
     } catch (err) {
-      setError('Failed to cancel appointment. Please try again.');
+      const errorMessage = err.response?.data?.message || 'Failed to cancel appointment. Please try again.';
+      setError(errorMessage);
+      setTimeout(() => setError(''), 5000);
     }
   };
 
@@ -143,12 +153,18 @@ const PatientDashboard = () => {
                           </span>
                         </td>
                         <td>
-                          <button
-                            className="btn btn-danger btn-sm"
-                            onClick={() => handleCancelAppointment(appointment.id)}
-                          >
-                            Cancel
-                          </button>
+                          {canCancelAppointment(appointment.appointment_date) ? (
+                            <button
+                              className="btn btn-danger btn-sm"
+                              onClick={() => handleCancelAppointment(appointment.id)}
+                            >
+                              Cancel
+                            </button>
+                          ) : (
+                            <span className="text-muted" style={{ fontSize: '0.85rem' }}>
+                              Cannot cancel
+                            </span>
+                          )}
                         </td>
                       </tr>
                     ))}
@@ -210,6 +226,16 @@ const PatientDashboard = () => {
               <span className="info-label">Account Type:</span>
               <span className="info-value">Patient</span>
             </div>
+          </div>
+
+          <div className="info-card" style={{ marginTop: '1.5rem', backgroundColor: '#f0f9ff', border: '1px solid #0ea5e9' }}>
+            <h3 style={{ color: '#0369a1' }}>Cancellation Policy</h3>
+            <p style={{ fontSize: '0.9rem', lineHeight: '1.6', color: '#333' }}>
+              Appointments can be cancelled at least <strong>2 days in advance</strong>.
+            </p>
+            <p style={{ fontSize: '0.85rem', lineHeight: '1.5', color: '#666', marginTop: '0.5rem' }}>
+              For cancellations within 2 days of your appointment, please contact the office directly.
+            </p>
           </div>
         </aside>
       </div>

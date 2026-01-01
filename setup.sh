@@ -2,8 +2,37 @@ touch PROJECT_STATE.md
 touch PROMPT_FOR_CLAUDE_CODE.md
 touch README.md
 
+# Check and start Ollama
+echo "Checking Ollama installation..."
+if command -v ollama &> /dev/null; then
+    echo "Ollama is installed"
+
+    # Check if Ollama is running
+    if ! curl -s http://localhost:11434/api/tags > /dev/null 2>&1; then
+        echo "Starting Ollama server..."
+        ollama serve &
+        sleep 3
+    else
+        echo "Ollama is already running"
+    fi
+
+    # Pull required models if not present
+    echo "Checking for required models..."
+    if ! ollama list | grep -q "mistral:7b"; then
+        echo "Pulling mistral:7b model..."
+        ollama pull mistral:7b
+    fi
+    if ! ollama list | grep -q "nomic-embed-text"; then
+        echo "Pulling nomic-embed-text model..."
+        ollama pull nomic-embed-text
+    fi
+else
+    echo "WARNING: Ollama not installed. Install from https://ollama.com"
+    echo "AI features will not work without Ollama"
+fi
+
 # Backend structure
-mkdir -p backend/app/{models,routes,schemas,utils}
+mkdir -p backend/app/{models,routes,schemas,utils,services,data}
 mkdir -p backend/migrations
 mkdir -p backend/tests
 

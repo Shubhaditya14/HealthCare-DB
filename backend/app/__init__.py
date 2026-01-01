@@ -37,11 +37,13 @@ def create_app():
     from app.routes.patient_routes import patient_bp
     from app.routes.doctor_routes import doctor_bp
     from app.routes.appointment_routes import appointment_bp
+    from app.routes.ai_routes import ai_bp
 
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(patient_bp, url_prefix='/api/patients')
     app.register_blueprint(doctor_bp, url_prefix='/api/doctors')
     app.register_blueprint(appointment_bp, url_prefix='/api/appointments')
+    app.register_blueprint(ai_bp, url_prefix='/api/ai')
 
 
     # Error Handlers

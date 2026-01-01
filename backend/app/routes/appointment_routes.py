@@ -28,7 +28,7 @@ def create_appointment():
     Returns:
         Created appointment info
     """
-    patient_id = get_jwt_identity()
+    patient_id = int(get_jwt_identity())  # Convert to int for comparison
     data = request.get_json()
 
     if not data:
@@ -112,7 +112,7 @@ def get_appointment(appointment_id):
     Returns:
         Appointment details
     """
-    user_id = get_jwt_identity()
+    user_id = int(get_jwt_identity())  # Convert to int for comparison
     claims = get_jwt()
     user_type = claims.get('user_type')
 
@@ -156,7 +156,7 @@ def update_appointment(appointment_id):
     Returns:
         Updated appointment info
     """
-    user_id = get_jwt_identity()
+    user_id = int(get_jwt_identity())  # Convert to int for comparison
     claims = get_jwt()
     user_type = claims.get('user_type')
     data = request.get_json()
@@ -232,7 +232,7 @@ def update_appointment(appointment_id):
 def cancel_appointment(appointment_id):
     """
     Cancel an appointment.
-    Only patients can cancel their own appointments.
+    Only patients can cancel their own appointments at least 2 days before the appointment date.
 
     Args:
         appointment_id: The appointment's ID
@@ -240,7 +240,7 @@ def cancel_appointment(appointment_id):
     Returns:
         Confirmation message
     """
-    patient_id = get_jwt_identity()
+    patient_id = int(get_jwt_identity())  # Convert to int for comparison
     appointment = Appointment.query.get(appointment_id)
 
     if not appointment:
@@ -256,6 +256,18 @@ def cancel_appointment(appointment_id):
         return jsonify({
             'error': 'bad_request',
             'message': f'Cannot cancel an appointment that is already {appointment.status}'
+        }), 400
+
+    # Check if appointment is at least 2 days away
+    from datetime import timedelta
+    today = date.today()
+    appointment_date = appointment.appointment_date
+    days_until_appointment = (appointment_date - today).days
+
+    if days_until_appointment < 2:
+        return jsonify({
+            'error': 'bad_request',
+            'message': 'Appointments can only be cancelled at least 2 days in advance. Please contact the office for assistance.'
         }), 400
 
     try:

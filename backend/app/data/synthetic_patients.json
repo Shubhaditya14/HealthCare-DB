@@ -1,0 +1,648 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "first_name": "Rajesh",
+      "last_name": "Kumar",
+      "email": "rajesh.kumar@email.com",
+      "age": 52,
+      "blood_group": "B+",
+      "allergies": ["penicillin"],
+      "current_medications": ["metformin", "lisinopril"],
+      "conditions": ["type 2 diabetes", "hypertension"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Type 2 Diabetes Mellitus Diagnosis",
+          "content": "Patient diagnosed with Type 2 Diabetes. HbA1c level at 8.2%. Fasting glucose 180 mg/dL. Started on metformin 500mg twice daily. Diet and exercise counseling provided. Follow-up in 3 months for HbA1c recheck.",
+          "record_date": "2023-03-15"
+        },
+        {
+          "record_type": "diagnosis",
+          "title": "Essential Hypertension",
+          "content": "Blood pressure consistently elevated at 150/95 mmHg over three visits. No signs of end-organ damage. Started on lisinopril 10mg daily. Target BP <140/90. Advised low sodium diet.",
+          "record_date": "2023-06-20"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "Annual Lipid Panel",
+          "content": "Total cholesterol: 220 mg/dL, LDL: 145 mg/dL, HDL: 42 mg/dL, Triglycerides: 165 mg/dL. LDL above target for diabetic patient. Consider statin therapy if lifestyle modifications insufficient.",
+          "record_date": "2024-01-10"
+        },
+        {
+          "record_type": "note",
+          "title": "Diabetes Follow-up",
+          "content": "HbA1c improved to 7.4%. Patient reports good medication compliance. Occasional hypoglycemic episodes in morning. Adjusted metformin timing to after meals. Continue current regimen.",
+          "record_date": "2024-06-15"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "first_name": "Priya",
+      "last_name": "Sharma",
+      "email": "priya.sharma@email.com",
+      "age": 34,
+      "blood_group": "A+",
+      "allergies": ["sulfa drugs", "shellfish"],
+      "current_medications": ["sertraline", "birth control"],
+      "conditions": ["anxiety disorder", "migraine"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Generalized Anxiety Disorder",
+          "content": "Patient presents with persistent worry, difficulty sleeping, and restlessness for past 6 months. GAD-7 score: 15 (moderate). Started on sertraline 50mg daily. Referred to therapist for CBT. Follow-up in 4 weeks.",
+          "record_date": "2023-08-10"
+        },
+        {
+          "record_type": "note",
+          "title": "Anxiety Treatment Progress",
+          "content": "Patient reports 50% improvement in symptoms. Sleep quality improved. GAD-7 score down to 9. Increased sertraline to 100mg for optimal response. Continue therapy sessions.",
+          "record_date": "2023-12-15"
+        },
+        {
+          "record_type": "diagnosis",
+          "title": "Migraine Without Aura",
+          "content": "Recurrent unilateral headaches with nausea, photophobia. 3-4 episodes per month. Prescribed sumatriptan 50mg PRN for acute attacks. Advised headache diary. Consider prophylaxis if frequency increases.",
+          "record_date": "2024-02-20"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "first_name": "Amit",
+      "last_name": "Patel",
+      "email": "amit.patel@email.com",
+      "age": 67,
+      "blood_group": "O+",
+      "allergies": [],
+      "current_medications": ["aspirin", "atorvastatin", "metoprolol", "clopidogrel"],
+      "conditions": ["coronary artery disease", "hyperlipidemia", "history of MI"],
+      "medical_records": [
+        {
+          "record_type": "procedure",
+          "title": "Cardiac Catheterization and PCI",
+          "content": "Patient presented with STEMI. Emergency cardiac catheterization revealed 95% occlusion of LAD. Successful PCI with drug-eluting stent placement. EF 45% post-procedure. Started on dual antiplatelet therapy.",
+          "record_date": "2022-11-05"
+        },
+        {
+          "record_type": "diagnosis",
+          "title": "Post-MI Cardiac Rehabilitation",
+          "content": "Enrolled in 12-week cardiac rehabilitation program. Target heart rate during exercise: 100-120 bpm. Dietary counseling for heart-healthy eating. Smoking cessation achieved.",
+          "record_date": "2022-12-01"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "Cardiac Follow-up Labs",
+          "content": "LDL: 68 mg/dL (at goal), HDL: 48 mg/dL, BNP: 150 pg/mL. Liver function tests normal on statin therapy. Continue current medications.",
+          "record_date": "2024-05-15"
+        },
+        {
+          "record_type": "note",
+          "title": "Annual Cardiology Review",
+          "content": "Echocardiogram shows EF improved to 50%. No anginal symptoms. Exercise tolerance good - walks 2 miles daily. Continue aspirin, clopidogrel (complete 1 year DAPT), atorvastatin 80mg, metoprolol 50mg BID.",
+          "record_date": "2024-08-20"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "first_name": "Sunita",
+      "last_name": "Reddy",
+      "email": "sunita.reddy@email.com",
+      "age": 45,
+      "blood_group": "AB+",
+      "allergies": ["latex", "iodine contrast"],
+      "current_medications": ["levothyroxine", "vitamin D"],
+      "conditions": ["hypothyroidism", "vitamin D deficiency"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Hashimoto's Thyroiditis",
+          "content": "TSH elevated at 12.5 mIU/L, Free T4 low at 0.6 ng/dL. Positive TPO antibodies. Diagnosed with Hashimoto's thyroiditis. Started levothyroxine 50mcg daily. Recheck TSH in 6 weeks.",
+          "record_date": "2023-01-20"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "Thyroid Function Follow-up",
+          "content": "TSH normalized at 2.8 mIU/L. Free T4: 1.1 ng/dL. Patient reports improved energy levels and resolution of constipation. Continue levothyroxine 50mcg.",
+          "record_date": "2023-04-15"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "Vitamin D Deficiency",
+          "content": "25-OH Vitamin D: 15 ng/mL (deficient). Started on vitamin D3 2000 IU daily. Advised sun exposure 15-20 minutes daily. Recheck in 3 months.",
+          "record_date": "2024-02-10"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "first_name": "Mohammed",
+      "last_name": "Khan",
+      "email": "mohammed.khan@email.com",
+      "age": 58,
+      "blood_group": "B-",
+      "allergies": ["aspirin", "NSAIDs"],
+      "current_medications": ["pantoprazole", "sucralfate"],
+      "conditions": ["peptic ulcer disease", "H. pylori infection"],
+      "medical_records": [
+        {
+          "record_type": "procedure",
+          "title": "Upper GI Endoscopy",
+          "content": "EGD performed for epigastric pain and dyspepsia. Findings: 1.5cm gastric ulcer in antrum, no active bleeding. Biopsy taken - negative for malignancy, positive for H. pylori. CLO test positive.",
+          "record_date": "2024-01-15"
+        },
+        {
+          "record_type": "diagnosis",
+          "title": "H. pylori Treatment",
+          "content": "Started triple therapy: pantoprazole 40mg BID, amoxicillin 1g BID, clarithromycin 500mg BID for 14 days. Patient allergic to aspirin/NSAIDs - avoid these medications. Follow-up EGD in 8 weeks.",
+          "record_date": "2024-01-20"
+        },
+        {
+          "record_type": "note",
+          "title": "Post-Treatment Follow-up",
+          "content": "Repeat EGD shows healed ulcer. H. pylori breath test negative - eradication successful. Continue PPI for 4 more weeks then reassess. Avoid NSAIDs permanently due to allergy and ulcer history.",
+          "record_date": "2024-03-25"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "first_name": "Ananya",
+      "last_name": "Gupta",
+      "email": "ananya.gupta@email.com",
+      "age": 28,
+      "blood_group": "O-",
+      "allergies": [],
+      "current_medications": ["folic acid", "prenatal vitamins"],
+      "conditions": ["pregnancy", "iron deficiency anemia"],
+      "medical_records": [
+        {
+          "record_type": "note",
+          "title": "First Prenatal Visit",
+          "content": "G2P1 at 8 weeks gestation. Previous uncomplicated vaginal delivery. Current pregnancy desired. Started prenatal vitamins and folic acid. First trimester screening scheduled. No concerning symptoms.",
+          "record_date": "2024-09-01"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "First Trimester Labs",
+          "content": "Hemoglobin: 10.2 g/dL (mild anemia), Blood type O negative - RhoGAM will be needed. Rubella immune. HIV, Hepatitis B, Syphilis negative. Started iron supplementation 325mg daily.",
+          "record_date": "2024-09-15"
+        },
+        {
+          "record_type": "note",
+          "title": "20-Week Anatomy Scan",
+          "content": "Detailed ultrasound shows normal fetal anatomy. Placenta anterior, not previa. AFI normal. Fetal growth appropriate for gestational age. Continue routine prenatal care.",
+          "record_date": "2024-11-20"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "first_name": "Vikram",
+      "last_name": "Singh",
+      "email": "vikram.singh@email.com",
+      "age": 72,
+      "blood_group": "A-",
+      "allergies": ["codeine"],
+      "current_medications": ["donepezil", "memantine", "sertraline"],
+      "conditions": ["Alzheimer's disease", "depression"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Alzheimer's Disease Diagnosis",
+          "content": "Progressive memory decline over 2 years. MMSE score: 18/30. MRI shows hippocampal atrophy. Clinical diagnosis of probable Alzheimer's disease, moderate stage. Started donepezil 5mg daily.",
+          "record_date": "2023-05-10"
+        },
+        {
+          "record_type": "note",
+          "title": "Alzheimer's Medication Adjustment",
+          "content": "Increased donepezil to 10mg daily after tolerating initial dose. Added memantine 5mg daily for combination therapy. Family educated on disease progression and safety measures.",
+          "record_date": "2023-08-20"
+        },
+        {
+          "record_type": "diagnosis",
+          "title": "Comorbid Depression",
+          "content": "Patient showing signs of depression with apathy and decreased appetite. GDS score: 12/15. Started low-dose sertraline 25mg (caution with dementia). Monitor for worsening confusion.",
+          "record_date": "2024-03-15"
+        },
+        {
+          "record_type": "note",
+          "title": "6-Month Cognitive Assessment",
+          "content": "MMSE stable at 17/30. Mood improved with sertraline. Patient able to perform basic ADLs with supervision. Caregiver reports manageable behaviors. Continue current regimen.",
+          "record_date": "2024-09-10"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "first_name": "Deepa",
+      "last_name": "Nair",
+      "email": "deepa.nair@email.com",
+      "age": 41,
+      "blood_group": "B+",
+      "allergies": ["bee stings"],
+      "current_medications": ["methotrexate", "folic acid", "naproxen"],
+      "conditions": ["rheumatoid arthritis"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Rheumatoid Arthritis Diagnosis",
+          "content": "Symmetrical polyarthritis affecting MCPs, PIPs, and wrists for 8 months. RF positive, Anti-CCP positive, ESR elevated. X-rays show early erosive changes. Diagnosed with seropositive RA. Started methotrexate 15mg weekly.",
+          "record_date": "2023-02-28"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "Methotrexate Monitoring",
+          "content": "CBC normal, LFTs mildly elevated (ALT 52). Reducing methotrexate to 12.5mg weekly. Adding folic acid 1mg daily to reduce side effects. Recheck labs in 4 weeks.",
+          "record_date": "2023-06-15"
+        },
+        {
+          "record_type": "note",
+          "title": "RA Disease Activity Assessment",
+          "content": "DAS28-ESR: 3.8 (moderate activity). Morning stiffness reduced to 30 minutes. Joint swelling improved. Continue methotrexate 12.5mg. PRN naproxen for flares. Consider biologic if inadequate response.",
+          "record_date": "2024-04-20"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "first_name": "Arjun",
+      "last_name": "Mehta",
+      "email": "arjun.mehta@email.com",
+      "age": 19,
+      "blood_group": "O+",
+      "allergies": ["peanuts"],
+      "current_medications": ["albuterol inhaler", "fluticasone inhaler", "epinephrine auto-injector"],
+      "conditions": ["asthma", "peanut allergy"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Persistent Asthma Diagnosis",
+          "content": "Recurrent wheezing and shortness of breath since childhood. Spirometry shows FEV1 75% predicted with 15% improvement post-bronchodilator. Diagnosed with moderate persistent asthma. Started on ICS/LABA combination.",
+          "record_date": "2022-09-10"
+        },
+        {
+          "record_type": "allergy",
+          "title": "Severe Peanut Allergy Documentation",
+          "content": "History of anaphylaxis to peanuts age 7. Carries epinephrine auto-injector at all times. Skin prick test strongly positive. Strict peanut avoidance advised. Updated allergy action plan provided.",
+          "record_date": "2023-03-05"
+        },
+        {
+          "record_type": "note",
+          "title": "Asthma Control Assessment",
+          "content": "ACT score: 22/25 (well-controlled). No ER visits or oral steroid courses this year. Peak flow stable at 85% personal best. Continue current inhaler regimen. Annual flu vaccine given.",
+          "record_date": "2024-10-15"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "first_name": "Kavita",
+      "last_name": "Desai",
+      "email": "kavita.desai@email.com",
+      "age": 55,
+      "blood_group": "AB-",
+      "allergies": [],
+      "current_medications": ["tamoxifen", "calcium", "vitamin D"],
+      "conditions": ["breast cancer survivor", "osteopenia"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Breast Cancer Diagnosis",
+          "content": "Stage IIA invasive ductal carcinoma, ER+/PR+/HER2-. 2.3cm tumor, 1/15 lymph nodes positive. Underwent lumpectomy and sentinel node biopsy. Oncotype DX score: 18 (low risk).",
+          "record_date": "2022-04-15"
+        },
+        {
+          "record_type": "procedure",
+          "title": "Adjuvant Treatment Completion",
+          "content": "Completed 4 cycles of TC chemotherapy and 6 weeks of radiation therapy. Started on tamoxifen 20mg daily for 5-year course. Tolerating well, minor hot flashes.",
+          "record_date": "2022-10-20"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "DEXA Scan Results",
+          "content": "Lumbar spine T-score: -1.8 (osteopenia). Hip T-score: -1.5. Increased fracture risk due to tamoxifen. Started calcium 1200mg + vitamin D 2000 IU daily. Weight-bearing exercise advised.",
+          "record_date": "2024-06-10"
+        },
+        {
+          "record_type": "note",
+          "title": "2-Year Oncology Follow-up",
+          "content": "No evidence of recurrence. Mammogram and clinical exam normal. Continue tamoxifen for 3 more years. Managing side effects well. Next imaging in 6 months.",
+          "record_date": "2024-08-25"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "first_name": "Rahul",
+      "last_name": "Joshi",
+      "email": "rahul.joshi@email.com",
+      "age": 38,
+      "blood_group": "A+",
+      "allergies": ["erythromycin"],
+      "current_medications": [],
+      "conditions": ["kidney stones", "gout"],
+      "medical_records": [
+        {
+          "record_type": "procedure",
+          "title": "Kidney Stone Episode",
+          "content": "Presented with acute left flank pain and hematuria. CT KUB showed 6mm stone in left ureterovesical junction. Managed conservatively with hydration and pain control. Stone passed spontaneously after 3 days.",
+          "record_date": "2023-07-10"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "24-Hour Urine Analysis",
+          "content": "Stone composition: calcium oxalate. 24-hour urine shows hypercalciuria and low citrate. Advised increased fluid intake (2.5L/day), low sodium diet, and citrate supplementation.",
+          "record_date": "2023-08-15"
+        },
+        {
+          "record_type": "diagnosis",
+          "title": "Gout Diagnosis",
+          "content": "Acute painful swelling of right first MTP joint. Serum uric acid: 9.2 mg/dL. Joint aspirate shows negatively birefringent crystals. Treated acute flare with colchicine. Lifestyle modifications advised.",
+          "record_date": "2024-05-20"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "first_name": "Neha",
+      "last_name": "Agarwal",
+      "email": "neha.agarwal@email.com",
+      "age": 31,
+      "blood_group": "B+",
+      "allergies": [],
+      "current_medications": ["mesalamine"],
+      "conditions": ["ulcerative colitis"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Ulcerative Colitis Diagnosis",
+          "content": "6-month history of bloody diarrhea and abdominal cramps. Colonoscopy shows continuous inflammation from rectum to splenic flexure (left-sided UC). Biopsies confirm ulcerative colitis. Started mesalamine 4.8g daily.",
+          "record_date": "2023-09-05"
+        },
+        {
+          "record_type": "note",
+          "title": "UC Remission Assessment",
+          "content": "Patient in clinical remission - no bloody stools for 4 months. Fecal calprotectin: 85 (near normal). Continue mesalamine maintenance therapy. Screening colonoscopy due in 8 years.",
+          "record_date": "2024-07-15"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "Annual UC Labs",
+          "content": "CBC normal (no anemia). CRP: 0.3 mg/L (normal). LFTs normal. Vitamin D: 28 ng/mL (sufficient). Iron studies normal. Disease well-controlled on current therapy.",
+          "record_date": "2024-09-20"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "first_name": "Sanjay",
+      "last_name": "Verma",
+      "email": "sanjay.verma@email.com",
+      "age": 63,
+      "blood_group": "O+",
+      "allergies": ["sulfonamides"],
+      "current_medications": ["insulin glargine", "insulin lispro", "lisinopril", "atorvastatin"],
+      "conditions": ["type 1 diabetes", "diabetic nephropathy"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Type 1 Diabetes - Long-standing",
+          "content": "Patient with T1DM since age 12. Currently on basal-bolus insulin regimen: glargine 25 units at bedtime, lispro with meals per carb counting. Recent HbA1c: 7.8%.",
+          "record_date": "2023-01-10"
+        },
+        {
+          "record_type": "diagnosis",
+          "title": "Diabetic Nephropathy Stage 3",
+          "content": "Urine albumin-creatinine ratio persistently elevated at 180 mg/g. eGFR: 45 mL/min (CKD stage 3b). Started ACE inhibitor for renal protection. BP target <130/80.",
+          "record_date": "2023-06-20"
+        },
+        {
+          "record_type": "note",
+          "title": "Nephrology Consultation",
+          "content": "Diabetic nephropathy progressing slowly. eGFR stable at 42. Proteinuria improved to 150 mg/g on ACE inhibitor. Avoid NSAIDs and contrast dye. Consider nephrology referral if eGFR <30.",
+          "record_date": "2024-08-10"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "first_name": "Pooja",
+      "last_name": "Saxena",
+      "email": "pooja.saxena@email.com",
+      "age": 47,
+      "blood_group": "A+",
+      "allergies": ["amoxicillin"],
+      "current_medications": ["escitalopram", "trazodone"],
+      "conditions": ["major depressive disorder", "insomnia"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Major Depressive Disorder",
+          "content": "Patient reports persistent low mood, anhedonia, poor concentration, and passive suicidal ideation for 3 months. PHQ-9 score: 19 (moderately severe). No active suicidal plan. Started escitalopram 10mg daily.",
+          "record_date": "2023-04-10"
+        },
+        {
+          "record_type": "note",
+          "title": "Depression Follow-up",
+          "content": "PHQ-9 improved to 12 at 6 weeks. Increased escitalopram to 20mg. Patient reports initial insomnia - added trazodone 50mg at bedtime. Continues therapy sessions weekly.",
+          "record_date": "2023-05-25"
+        },
+        {
+          "record_type": "note",
+          "title": "6-Month Mental Health Review",
+          "content": "Significant improvement in mood. PHQ-9: 6 (mild). Sleeping well on trazodone. Suicidal ideation resolved. Continue current medications. Reduce therapy to biweekly.",
+          "record_date": "2024-01-15"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "first_name": "Anil",
+      "last_name": "Kapoor",
+      "email": "anil.kapoor@email.com",
+      "age": 70,
+      "blood_group": "B-",
+      "allergies": [],
+      "current_medications": ["carbidopa-levodopa", "pramipexole", "rivastigmine patch"],
+      "conditions": ["Parkinson's disease", "Parkinson's dementia"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Parkinson's Disease Diagnosis",
+          "content": "Progressive resting tremor, bradykinesia, and rigidity over 2 years. No red flags for atypical parkinsonism. Started carbidopa-levodopa 25/100 TID with good initial response.",
+          "record_date": "2021-08-15"
+        },
+        {
+          "record_type": "note",
+          "title": "Motor Fluctuations Management",
+          "content": "Patient experiencing wearing-off phenomenon. Added pramipexole 0.5mg TID. Adjusted levodopa to 5 doses per day. Motor symptoms improved with longer 'on' time.",
+          "record_date": "2023-03-20"
+        },
+        {
+          "record_type": "diagnosis",
+          "title": "Parkinson's Disease Dementia",
+          "content": "Cognitive decline noted 5 years after motor symptoms. MoCA score: 18/30. Visual hallucinations present (non-threatening). Started rivastigmine patch 4.6mg daily. Caregiver support arranged.",
+          "record_date": "2024-05-10"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "first_name": "Meera",
+      "last_name": "Iyer",
+      "email": "meera.iyer@email.com",
+      "age": 36,
+      "blood_group": "O+",
+      "allergies": ["ibuprofen"],
+      "current_medications": ["sumatriptan", "topiramate"],
+      "conditions": ["chronic migraine", "medication overuse headache"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Chronic Migraine Diagnosis",
+          "content": "Headache on 18 days per month, 10 meeting migraine criteria. Using OTC analgesics daily. Diagnosed with chronic migraine and medication overuse headache. Started topiramate prophylaxis and analgesic taper.",
+          "record_date": "2023-06-15"
+        },
+        {
+          "record_type": "note",
+          "title": "Migraine Prevention Follow-up",
+          "content": "After 3 months on topiramate 100mg daily and stopping daily analgesics, headache days reduced to 8 per month. Using sumatriptan only 2-3 times per month. Significant improvement in function.",
+          "record_date": "2023-10-20"
+        },
+        {
+          "record_type": "note",
+          "title": "Headache Diary Review",
+          "content": "Migraine days now 6 per month (episodic). Identified triggers: stress, irregular sleep, red wine. Continue topiramate 100mg. Lifestyle modifications reinforced. Consider CGRP inhibitor if worsens.",
+          "record_date": "2024-06-25"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "first_name": "Ravi",
+      "last_name": "Krishnan",
+      "email": "ravi.krishnan@email.com",
+      "age": 44,
+      "blood_group": "AB+",
+      "allergies": ["contrast dye"],
+      "current_medications": ["amlodipine", "rosuvastatin"],
+      "conditions": ["hypertension", "hyperlipidemia", "sleep apnea"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Sleep Apnea Diagnosis",
+          "content": "Severe snoring, witnessed apneas, excessive daytime sleepiness. Epworth Sleepiness Scale: 15. Polysomnography shows AHI 32 (moderate-severe OSA). CPAP therapy initiated at 10 cm H2O.",
+          "record_date": "2023-02-10"
+        },
+        {
+          "record_type": "note",
+          "title": "CPAP Compliance Review",
+          "content": "CPAP data shows average use 6.2 hours/night with AHI 2.3 (well controlled). Patient reports improved energy and alertness. Blood pressure also improved with OSA treatment.",
+          "record_date": "2023-08-15"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "Cardiovascular Risk Labs",
+          "content": "Total cholesterol: 210, LDL: 130, HDL: 45, TG: 175. BP on treatment: 128/82. Started rosuvastatin 10mg for primary prevention given multiple risk factors.",
+          "record_date": "2024-04-20"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "first_name": "Lakshmi",
+      "last_name": "Rao",
+      "email": "lakshmi.rao@email.com",
+      "age": 59,
+      "blood_group": "A-",
+      "allergies": ["morphine"],
+      "current_medications": ["metformin", "empagliflozin", "losartan"],
+      "conditions": ["type 2 diabetes", "heart failure with preserved EF"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Heart Failure Diagnosis",
+          "content": "Progressive dyspnea on exertion and lower extremity edema. BNP: 450. Echocardiogram shows EF 55% (preserved), Grade 2 diastolic dysfunction. Diagnosed with HFpEF. Started on empagliflozin for dual benefit.",
+          "record_date": "2023-09-15"
+        },
+        {
+          "record_type": "note",
+          "title": "Heart Failure Optimization",
+          "content": "Symptoms improved on empagliflozin - less dyspnea and edema. BNP down to 280. Continue SGLT2 inhibitor. Salt restriction reinforced. Target weight maintenance.",
+          "record_date": "2024-01-20"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "Diabetes and Renal Monitoring",
+          "content": "HbA1c: 7.2% (improved from 8.1%). eGFR: 65 (stable). UACR: 45 mg/g (microalbuminuria improved). Continue metformin and empagliflozin. Losartan providing renal protection.",
+          "record_date": "2024-07-10"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "first_name": "Suresh",
+      "last_name": "Menon",
+      "email": "suresh.menon@email.com",
+      "age": 51,
+      "blood_group": "B+",
+      "allergies": [],
+      "current_medications": ["gabapentin", "duloxetine"],
+      "conditions": ["chronic low back pain", "diabetic neuropathy"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Chronic Low Back Pain",
+          "content": "Persistent lumbar pain for 3 years, worse with prolonged sitting. MRI shows L4-L5 disc bulge without nerve compression. No red flags. Conservative management with physical therapy and gabapentin.",
+          "record_date": "2022-11-10"
+        },
+        {
+          "record_type": "diagnosis",
+          "title": "Diabetic Peripheral Neuropathy",
+          "content": "Burning and tingling in feet bilaterally. Monofilament test abnormal. HbA1c 8.5% (suboptimal control). Added duloxetine 60mg for neuropathic pain. Emphasized glycemic control.",
+          "record_date": "2023-05-20"
+        },
+        {
+          "record_type": "note",
+          "title": "Pain Management Follow-up",
+          "content": "Pain scores improved from 7/10 to 4/10 on combination therapy. Sleeping better. Continue gabapentin 300mg TID and duloxetine 60mg daily. Physical therapy ongoing.",
+          "record_date": "2024-03-15"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "first_name": "Geeta",
+      "last_name": "Bhatt",
+      "email": "geeta.bhatt@email.com",
+      "age": 65,
+      "blood_group": "O-",
+      "allergies": ["tetracycline"],
+      "current_medications": ["alendronate", "calcium", "vitamin D", "omeprazole"],
+      "conditions": ["osteoporosis", "GERD", "history of vertebral fracture"],
+      "medical_records": [
+        {
+          "record_type": "diagnosis",
+          "title": "Osteoporosis with Vertebral Fracture",
+          "content": "Back pain led to discovery of T12 compression fracture on X-ray. DEXA scan: lumbar T-score -3.2, hip -2.8 (osteoporosis). Started alendronate 70mg weekly with calcium and vitamin D.",
+          "record_date": "2023-03-10"
+        },
+        {
+          "record_type": "note",
+          "title": "Osteoporosis Treatment Review",
+          "content": "On bisphosphonate for 18 months. No new fractures. Taking medication correctly (fasting, upright 30 min). Minor GI upset - added PPI. Repeat DEXA scheduled.",
+          "record_date": "2024-09-15"
+        },
+        {
+          "record_type": "lab_result",
+          "title": "Bone Health Labs",
+          "content": "Calcium: 9.2 (normal), Vitamin D: 38 (sufficient), PTH: 45 (normal). 24-hour urine calcium normal. Continue current supplementation. DEXA shows 3% improvement in lumbar spine BMD.",
+          "record_date": "2024-10-20"
+        }
+      ]
+    }
+  ]
+}

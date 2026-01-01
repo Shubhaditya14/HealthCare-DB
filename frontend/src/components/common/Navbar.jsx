@@ -92,6 +92,17 @@ const Navbar = () => {
                     Dashboard
                   </Link>
                 </li>
+                {user?.user_type === 'doctor' && (
+                  <li className="nav-item">
+                    <Link
+                      to="/doctor/ai-assistant"
+                      className="nav-link ai-link"
+                      onClick={closeMobileMenu}
+                    >
+                      AI Assistant
+                    </Link>
+                  </li>
+                )}
                 <li className="nav-item user-info">
                   <span className="user-welcome">Welcome, {user?.first_name}</span>
                 </li>

@@ -1,0 +1,1 @@
+1. everydoctor can see any patient data

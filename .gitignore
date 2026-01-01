@@ -71,3 +71,6 @@ logs/
 *.tmp
 *.temp
 .cache/
+
+# Project state
+project_state.md

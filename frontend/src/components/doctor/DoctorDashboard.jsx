@@ -45,10 +45,13 @@ const DoctorDashboard = () => {
     try {
       await appointmentAPI.update(appointmentId, { status: newStatus });
       setSuccessMessage(`Appointment ${newStatus} successfully`);
+      setError('');
       fetchData();
       setTimeout(() => setSuccessMessage(''), 3000);
     } catch (err) {
-      setError('Failed to update appointment. Please try again.');
+      const errorMessage = err.response?.data?.message || 'Failed to update appointment. Please try again.';
+      setError(errorMessage);
+      setTimeout(() => setError(''), 5000);
     }
   };
 
@@ -278,6 +281,16 @@ const DoctorDashboard = () => {
               <span className="info-label">Experience:</span>
               <span className="info-value">{doctorInfo?.years_experience} years</span>
             </div>
+          </div>
+
+          <div className="info-card" style={{ marginTop: '1.5rem', backgroundColor: '#fef3c7', border: '1px solid #f59e0b' }}>
+            <h3 style={{ color: '#92400e' }}>Policy Notice</h3>
+            <p style={{ fontSize: '0.9rem', lineHeight: '1.6', color: '#333' }}>
+              Patients can cancel appointments at least <strong>2 days in advance</strong>.
+            </p>
+            <p style={{ fontSize: '0.85rem', lineHeight: '1.5', color: '#666', marginTop: '0.5rem' }}>
+              Doctors can cancel or complete appointments at any time.
+            </p>
           </div>
         </aside>
       </div>

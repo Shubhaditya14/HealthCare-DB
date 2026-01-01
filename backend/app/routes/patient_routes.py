@@ -125,7 +125,7 @@ def get_profile():
     Returns:
         Patient's profile information
     """
-    patient_id = get_jwt_identity()
+    patient_id = int(get_jwt_identity())
     patient = Patient.query.get(patient_id)
 
     if not patient:
@@ -152,7 +152,7 @@ def update_profile():
     Returns:
         Updated patient profile
     """
-    patient_id = get_jwt_identity()
+    patient_id = int(get_jwt_identity())
     patient = Patient.query.get(patient_id)
 
     if not patient:
@@ -207,7 +207,7 @@ def get_appointments():
     Returns:
         List of patient's appointments
     """
-    patient_id = get_jwt_identity()
+    patient_id = int(get_jwt_identity())
     patient = Patient.query.get(patient_id)
 
     if not patient:

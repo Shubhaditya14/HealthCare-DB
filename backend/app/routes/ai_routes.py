@@ -6,6 +6,8 @@ from app.services.ai_service import ollama
 from app.services.drug_checker import drug_checker
 from app.services.prescription_ai import prescription_ai
 from app.services.rag_service import rag_service
+from app.services.diabetes_predictor import diabetes_predictor
+from app.services.retinopathy_detector import retinopathy_detector
 from app.models import Patient, MedicalRecord
 from app import db
 
@@ -29,7 +31,11 @@ def ai_status():
         "features": {
             "drug_interaction_check": True,
             "prescription_suggestion": True,
-            "patient_history_search": available
+            "patient_history_search": available,
+            "retinopathy_screening": retinopathy_detector.is_ready()
+        },
+        "cv_models": {
+            "retinopathy": retinopathy_detector.status()
         }
     })
 
@@ -358,6 +364,98 @@ def load_synthetic_data():
             "error": "load_error",
             "message": str(e),
             "loaded": False
+        }), 500
+
+
+@ai_bp.route('/predict-diabetes', methods=['POST'])
+@jwt_required()
+def predict_diabetes():
+    """
+    Predict diabetes risk using ML model.
+    
+    Request body:
+    {
+        "age": 52,
+        "gender": 1,  // 0=female, 1=male
+        "pulse_rate": 75,
+        "systolic_bp": 140,
+        "diastolic_bp": 90,
+        "glucose": 126,
+        "bmi": 28.5,
+        "family_diabetes": 1,  // 0=no, 1=yes
+        "hypertensive": 1,  // 0=no, 1=yes
+        "family_hypertension": 1,  // 0=no, 1=yes
+        "cardiovascular_disease": 0,  // 0=no, 1=yes
+        "stroke": 0  // 0=no, 1=yes
+    }
+    """
+    data = request.get_json()
+    
+    if not data:
+        return jsonify({"error": "validation_error", "message": "Request body required"}), 400
+    
+    try:
+        result = diabetes_predictor.predict(data)
+        return jsonify({
+            "success": True,
+            "prediction": result
+        })
+    except ValueError as e:
+        return jsonify({
+            "error": "validation_error",
+            "message": str(e)
+        }), 400
+    except Exception as e:
+        return jsonify({
+            "error": "prediction_error",
+            "message": f"Error during prediction: {str(e)}"
+        }), 500
+
+
+@ai_bp.route('/predict-retinopathy', methods=['POST'])
+@jwt_required()
+def predict_retinopathy():
+    """
+    Predict diabetic retinopathy stage from a retinal image.
+    Expects multipart/form-data with 'image' file field.
+    """
+    # Ensure model is available before accepting uploads
+    if not retinopathy_detector.is_ready():
+        status = retinopathy_detector.status()
+        return jsonify({
+            "error": "service_unavailable",
+            "message": status.get("error") or "Retinopathy model not loaded. Install TensorFlow/Keras (Python 3.10/3.11 recommended) and ensure model files exist in /model.",
+            "status": status
+        }), 503
+
+    if 'image' not in request.files:
+        return jsonify({
+            "error": "validation_error",
+            "message": "Retinal image file is required (form field 'image')"
+        }), 400
+
+    file = request.files['image']
+    if not file or file.filename == '':
+        return jsonify({
+            "error": "validation_error",
+            "message": "Please upload a valid retinal image"
+        }), 400
+
+    try:
+        prediction = retinopathy_detector.predict_image(file)
+        return jsonify({
+            "success": True,
+            "prediction": prediction
+        })
+    except ValueError as e:
+        return jsonify({
+            "error": "validation_error",
+            "message": str(e)
+        }), 400
+    except Exception as e:
+        return jsonify({
+            "error": "prediction_error",
+            "message": f"Error during retinopathy prediction: {str(e)}"
         }), 500
 
 

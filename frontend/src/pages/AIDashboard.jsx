@@ -3,6 +3,8 @@ import { aiAPI } from '../utils/api';
 import DrugInteractionChecker from '../components/doctor/DrugInteractionChecker';
 import PrescriptionAssistant from '../components/doctor/PrescriptionAssistant';
 import PatientHistorySearch from '../components/doctor/PatientHistorySearch';
+import DiabetesPredictor from '../components/doctor/DiabetesPredictor';
+import RetinopathyDetector from '../components/doctor/RetinopathyDetector';
 import '../styles/ai.css';
 
 const AIDashboard = () => {
@@ -29,6 +31,8 @@ const AIDashboard = () => {
     { id: 'interactions', label: 'Drug Interactions', icon: '💊' },
     { id: 'prescription', label: 'Prescription Assistant', icon: '📝' },
     { id: 'history', label: 'Patient History', icon: '🔍' },
+    { id: 'diabetes', label: 'Diabetes Predictor', icon: '🩺' },
+    { id: 'retinopathy', label: 'Retinopathy Screen', icon: '👁️' },
   ];
 
   const renderActiveComponent = () => {
@@ -39,6 +43,10 @@ const AIDashboard = () => {
         return <PrescriptionAssistant />;
       case 'history':
         return <PatientHistorySearch />;
+      case 'diabetes':
+        return <DiabetesPredictor />;
+      case 'retinopathy':
+        return <RetinopathyDetector />;
       default:
         return <DrugInteractionChecker />;
     }

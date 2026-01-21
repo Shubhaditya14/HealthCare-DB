@@ -457,6 +457,118 @@ Generate patient-friendly medication instructions.
 
 ---
 
+## 6. Diabetes Prediction
+
+Predict diabetes risk using machine learning model based on clinical parameters.
+
+### Example Inputs
+
+**Low Risk Patient (~3-4% probability):**
+```json
+{
+  "age": 30,
+  "gender": 1,
+  "pulse_rate": 68,
+  "systolic_bp": 115,
+  "diastolic_bp": 75,
+  "glucose": 90,
+  "bmi": 23.5,
+  "family_diabetes": 0,
+  "hypertensive": 0,
+  "family_hypertension": 0,
+  "cardiovascular_disease": 0,
+  "stroke": 0
+}
+```
+
+**Moderate Risk Patient (~20-40% probability):**
+```json
+{
+  "age": 52,
+  "gender": 1,
+  "pulse_rate": 78,
+  "systolic_bp": 145,
+  "diastolic_bp": 92,
+  "glucose": 145,
+  "bmi": 32.5,
+  "family_diabetes": 1,
+  "hypertensive": 1,
+  "family_hypertension": 1,
+  "cardiovascular_disease": 0,
+  "stroke": 0
+}
+```
+
+**High Risk Patient (~40-50% probability):**
+```json
+{
+  "age": 58,
+  "gender": 1,
+  "pulse_rate": 82,
+  "systolic_bp": 155,
+  "diastolic_bp": 95,
+  "glucose": 200,
+  "bmi": 35.2,
+  "family_diabetes": 1,
+  "hypertensive": 1,
+  "family_hypertension": 1,
+  "cardiovascular_disease": 1,
+  "stroke": 1
+}
+```
+
+**Very High Risk Patient (>80% probability):**
+```json
+{
+  "age": 65,
+  "gender": 1,
+  "pulse_rate": 95,
+  "systolic_bp": 170,
+  "diastolic_bp": 105,
+  "glucose": 300,
+  "bmi": 42.0,
+  "family_diabetes": 1,
+  "hypertensive": 1,
+  "family_hypertension": 1,
+  "cardiovascular_disease": 1,
+  "stroke": 1
+}
+```
+
+**Young Patient with Family History:**
+```json
+{
+  "age": 28,
+  "gender": 0,
+  "pulse_rate": 70,
+  "systolic_bp": 120,
+  "diastolic_bp": 80,
+  "glucose": 95,
+  "bmi": 26.0,
+  "family_diabetes": 1,
+  "hypertensive": 0,
+  "family_hypertension": 1,
+  "cardiovascular_disease": 0,
+  "stroke": 0
+}
+```
+
+**Parameter Definitions:**
+- **age**: Patient age in years (0-120)
+- **gender**: 0 = Female, 1 = Male
+- **pulse_rate**: Heart rate in beats per minute (40-200)
+- **systolic_bp**: Systolic blood pressure in mmHg (70-250)
+- **diastolic_bp**: Diastolic blood pressure in mmHg (40-150)
+- **glucose**: Fasting blood glucose in mg/dL (50-500)
+- **bmi**: Body Mass Index (10-70)
+- **family_diabetes**: Family history of diabetes (0 = No, 1 = Yes)
+- **hypertensive**: Currently has hypertension (0 = No, 1 = Yes)
+- **family_hypertension**: Family history of hypertension (0 = No, 1 = Yes)
+- **cardiovascular_disease**: Has cardiovascular disease (0 = No, 1 = Yes)
+- **stroke**: History of stroke (0 = No, 1 = Yes)
+
+---
+
 ## Using in Frontend
 
 1. Login as doctor (doctor@example.com / demo123)
@@ -465,6 +577,7 @@ Generate patient-friendly medication instructions.
    - **Drug Interactions**: Enter medications one by one
    - **Prescription Assistant**: Fill in the diagnosis form
    - **Patient History**: Select patient ID and enter query
+   - **Diabetes Predictor**: Enter patient clinical parameters
 
 ---
 
@@ -480,8 +593,28 @@ TOKEN=$(curl -s -X POST http://localhost:5001/api/auth/login \
 
 Then use any endpoint:
 ```bash
+# Drug Interactions
 curl -X POST http://localhost:5001/api/ai/check-interactions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $TOKEN" \
   -d '{"medications": ["warfarin", "aspirin"]}'
+
+# Diabetes Prediction
+curl -X POST http://localhost:5001/api/ai/predict-diabetes \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d '{
+    "age": 52,
+    "gender": 1,
+    "pulse_rate": 78,
+    "systolic_bp": 145,
+    "diastolic_bp": 92,
+    "glucose": 145,
+    "bmi": 32.5,
+    "family_diabetes": 1,
+    "hypertensive": 1,
+    "family_hypertension": 1,
+    "cardiovascular_disease": 0,
+    "stroke": 0
+  }'
 ```

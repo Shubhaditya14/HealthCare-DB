@@ -231,8 +231,3 @@ The application features a clean, professional medical theme with:
 
 
 
-## 👨‍💻 Author
-
-**Shubhaditya**  
-Building sophisticated, secure web systems
-

@@ -162,6 +162,21 @@ export const aiAPI = {
 
   // Generate embeddings for all records
   embedAllRecords: () => api.post('/ai/embed-all-records'),
+
+  // Diabetes prediction
+  predictDiabetes: (data) => api.post('/ai/predict-diabetes', data),
+
+  // Diabetic retinopathy prediction
+  predictRetinopathy: (file) => {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    return api.post('/ai/predict-retinopathy', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  },
 };
 
 export default api;
